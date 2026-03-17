@@ -1,0 +1,23 @@
+
+
+package com.mycompany.patternprinting;
+
+
+
+public class PatternPrinting {
+
+       public static void main(String[] args) {
+           
+       Pattern ptr=new Pattern();
+       
+//     ptr.pattern1(5);
+//     System.out.println("=====================");
+//     ptr.pattern2(5);  
+//     System.out.println("=====================");
+//     ptr.pattern3(5); 
+//     System.out.println("=====================");
+//     ptr.pattern4(5);
+           System.out.println("=================");
+           ptr.pattern7(5);
+    }
+}
