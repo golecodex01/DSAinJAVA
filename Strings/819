@@ -1,0 +1,53 @@
+import java.util.*;
+
+class Solution {
+
+    public String mostCommonWord(String paragraph, String[] banned) {
+
+        HashSet<String> bannedSet = new HashSet<>(Arrays.asList(banned));
+        HashMap<String, Integer> frequency = new HashMap<>();
+
+        StringBuilder word = new StringBuilder();
+
+        for (char ch : paragraph.toLowerCase().toCharArray()) {
+
+            if (Character.isLetter(ch)) {
+                word.append(ch);
+            } else {
+
+                if (word.length() > 0) {
+
+                    String w = word.toString();
+
+                    if (!bannedSet.contains(w)) {
+                        frequency.put(w, frequency.getOrDefault(w, 0) + 1);
+                    }
+
+                    word.setLength(0);
+                }
+            }
+        }
+
+        if (word.length() > 0) {
+
+            String w = word.toString();
+
+            if (!bannedSet.contains(w)) {
+                frequency.put(w, frequency.getOrDefault(w, 0) + 1);
+            }
+        }
+
+        String answer = "";
+        int maxCount = 0;
+
+        for (String key : frequency.keySet()) {
+
+            if (frequency.get(key) > maxCount) {
+                maxCount = frequency.get(key);
+                answer = key;
+            }
+        }
+
+        return answer;
+    }
+}
